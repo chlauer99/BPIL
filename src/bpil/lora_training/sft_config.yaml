@@ -1,0 +1,44 @@
+### model
+model_name_or_path: openai/gpt-oss-20b 
+# or meta-llama/Llama-3.1-8B-Instruct; Qwen/Qwen2.5-14B-Instruct; Qwen/Qwen3-14B; Qwen/Qwen3-30B-A3B-Instruct-2507; tiiuae/Falcon-H1-7B-Instruct
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+
+### dataset
+dataset: bpil
+template: gpt # or llama3; or qwen; or qwen3_nothink; or falcon_h1
+cutoff_len: 3500
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: Training/<model_name>/lora/sft
+logging_steps: 10
+save_strategy : epoch
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 3
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+
+### eval
+val_size: 0.1
+per_device_eval_batch_size: 2
+eval_strategy: epoch
