@@ -42,5 +42,5 @@ Contains the statistical analyses reported in the paper, including:
 
 The evaluation framework used to assess syntactic, semantic, pragmatic quality and validity is **not included in this repository**.
 
-It is available separately in the **BEF4LLM** repository (https://gitlab-iwi.dfki.de/lauer/bef4llm.git), which contains the complete benchmarking framework used in the experiments reported in the paper. 
+We used the **BEF4LLM** repository (https://gitlab-iwi.dfki.de/lauer/bef4llm.git), which contains the complete benchmarking framework used in the experiments reported in the paper. 
 
